@@ -44,13 +44,11 @@ Web analytics includes the analysis of the behavior of visitors to a website thr
 
 ## Observability
 ### Definition
-Observability means the ability to tell what's going on in a system or application through its outputs, logs, and performance metrics. Observability is becoming more and more important in the field of reliability, performance, and security for applications and infrastructure in modern software systems and cloud computing.[2]
+Observability means the ability to tell what's going on in a system or application through its outputs, logs, and performance metrics. Observability is becoming more and more important in the field of reliability, performance, and security for applications and infrastructure in modern software systems and cloud computing. [2]
 
 ### History
 ![Observability Evolution](Images/observability-evolution.drawio.svg)
 
-# Tools introduction &amp; installation
-## Docker
 # Learning activities
 # Final Thoughts
 
