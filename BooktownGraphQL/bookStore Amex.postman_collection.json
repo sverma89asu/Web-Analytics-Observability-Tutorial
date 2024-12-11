@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "93f4ca13-3e53-4d2c-8131-6e4ae9fdaa68",
+		"name": "bookStore Amex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8726117",
+		"_collection_link": "https://warped-astronaut-748481.postman.co/workspace/New-Team-Workspace~f3786562-42cb-45a0-8d1c-b03a55676f0f/collection/8726117-93f4ca13-3e53-4d2c-8131-6e4ae9fdaa68?action=share&source=collection_link&creator=8726117"
+	},
+	"item": [
+		{
+			"name": "getAuthors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  authors {\n    id\n    lastName\n    firstName\n    books {\n        isbn\n        title\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{bookPort}}/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{bookPort}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAuthorById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  authorById(id: 0) {\n    id\n    lastName\n    firstName\n    books {\n        isbn\n        title\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{bookPort}}/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{bookPort}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addAuthor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  addAuthor(input: {\n    firstName: \"Subham\"\n    lastName:\"Kumar\"\n  }) {\n    author {\n      id\n      firstName\n      lastName\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{bookPort}}/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{bookPort}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n    books {\n        isbn\n        title\n        authorId\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{bookPort}}/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{bookPort}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooksByISBN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  bookByISBN(isbn: \"123456789\") {\n    isbn\n    title\n    authorId\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{bookPort}}/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{bookPort}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  addBook(input:{\n    isbn: \"2222\"\n    title: \"Test book2\"\n    authorId: 1\n  }) {\n    book {\n      isbn\n      title\n      authorId\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{bookPort}}/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{bookPort}}",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bookPort",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}
