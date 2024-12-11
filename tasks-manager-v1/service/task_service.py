@@ -1,0 +1,74 @@
+import redis
+from model.task import Task
+from datetime import datetime
+
+class TaskManager:
+    # set redis_host as host.docker.internal if redis is running locally and container service
+    def __init__(self, redis_host='redis', redis_port=6379):
+        # Connect to Redis server
+        self.redis_client = redis.Redis(host=redis_host, port=redis_port, decode_responses=True)
+
+    def add_task(self, description, priority='medium', due_date=None):
+        print(due_date)
+        # Generate task ID, auto-incremented, by redis incr
+        task_id = self.redis_client.incr('task_id')
+        # Create task object
+        task = Task(task_id, description, priority=priority, due_date=due_date)
+        # Store task in Redis hash, key is f'task:{task_id}'
+        self.redis_client.hset(f'task:{task_id}', mapping=task.to_dict())
+        print(f'Task added with ID: {task_id}')
+        return task_id
+
+    def view_tasks(self, status=None, priority=None):
+        print(status, priority)
+        # Get all tasks from Redis, Note: all keys starting with 'task:'
+        task_ids = self.redis_client.keys('task:*')
+        # If no tasks available, print message and return
+        # e.g. No tasks available.
+        if not task_ids:
+            print("No tasks available.")
+            return []
+        # Iterate over all tasks and print task details
+        # e.g. ID: 1, Description: Task 1, Status: pending, Priority: medium, Due Date: 2021-12-31
+        tasks = []
+        for task_id in task_ids:
+            task_info = self.redis_client.hgetall(task_id)
+            if status and task_info['status'] != status:
+                continue
+            if priority and task_info['priority'] != priority:
+                continue
+            task = Task(task_id.split(':')[1], task_info['description'], task_info['status'],
+                         task_info['priority'], datetime.strptime(task_info['due_date'], '%Y-%m-%d').date() if task_info['due_date'] else None)
+            tasks.append(task.to_dict())
+        
+        return tasks
+    
+    def get_task(self, task_id):
+        task_info = self.redis_client.hgetall(f'task:{task_id}')
+        if task_info is None:
+            raise ValueError(f'Task {task_id} not found.')
+        print(task_info)
+        task = Task(task_id, task_info['description'], task_info['status'],
+                    task_info['priority'], datetime.strptime(task_info['due_date'], '%Y-%m-%d').date() if task_info['due_date'] else None)
+        return task.to_dict()
+
+    def remove_task(self, task_id):
+        # Try to delete task, if successful, print message
+        # e.g. Task 1 removed.
+        # If task not found, print message
+        # e.g. Task 1 not found.
+        if self.redis_client.delete(f'task:{task_id}'):
+            return ""
+        else:
+            raise ValueError(f'Task {task_id} not found.')
+
+    def complete_task(self, task_id):
+        # Check if task exists, if exist, mark task as completed, by hexists and hset
+        # e.g. Task 1 marked as completed.
+        # If task not found, print message
+        # e.g. Task 1 not found.
+        if self.redis_client.hexists(f'task:{task_id}', 'description'):
+            self.redis_client.hset(f'task:{task_id}', 'status', 'completed')
+            return ""
+        else:
+            raise ValueError(f'Task {task_id} not found.')
