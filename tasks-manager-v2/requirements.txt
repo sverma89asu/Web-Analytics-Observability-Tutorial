@@ -1,0 +1,4 @@
+Flask
+redis
+load_dotenv
+prometheus-flask-exporter
