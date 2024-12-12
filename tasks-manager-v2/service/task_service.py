@@ -41,15 +41,16 @@ class TaskManager:
         # Iterate over all tasks and print task details
         # e.g. ID: 1, Description: Task 1, Status: pending, Priority: medium, Due Date: 2021-12-31
         tasks = []
-        for task_id in task_ids:
-            task_info = self.redis_client.hgetall(task_id)
-            if status and task_info['status'] != status:
-                continue
-            if priority and task_info['priority'] != priority:
-                continue
-            task = Task(task_id.split(':')[1], task_info['description'], task_info['status'],
-                         task_info['priority'], datetime.strptime(task_info['due_date'], '%Y-%m-%d').date() if task_info['due_date'] else None)
-            tasks.append(task.to_dict())
+        with tracer.start_as_current_span("fetch task list") as span:
+            for task_id in task_ids:
+                task_info = self.redis_client.hgetall(task_id)
+                if status and task_info['status'] != status:
+                    continue
+                if priority and task_info['priority'] != priority:
+                    continue
+                task = Task(task_id.split(':')[1], task_info['description'], task_info['status'],
+                             task_info['priority'], datetime.strptime(task_info['due_date'], '%Y-%m-%d').date() if task_info['due_date'] else None)
+                tasks.append(task.to_dict())
         
         return tasks
     
