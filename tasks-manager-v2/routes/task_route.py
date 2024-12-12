@@ -2,10 +2,12 @@ from flask import Blueprint, request, jsonify, url_for
 from service.task_service import TaskManager
 from datetime import datetime
 from config.logging_config import logger
+from opentelemetry import trace
 
 tasks = Blueprint('tasks', __name__)
 
 task_manager = TaskManager()
+tracer = trace.get_tracer("task-manager-v2")
 
 @tasks.route("/tasks", methods = ["POST"])
 def add_task():
@@ -14,15 +16,15 @@ def add_task():
     description = data.get("description")
     priority = data.get("priority", "medium")
     due_date = data.get("due_date")
-    
-    if due_date:
-        try:
-            due_date = datetime.strptime(due_date, '%Y-%m-%d').date()
-            task_id = task_manager.add_task(description, priority, due_date)
-        except:
-            raise ValueError("Invalid date format")
-    else:
-        task_id = task_manager.add_task(description, priority)
+    with tracer.start_as_current_span("create_task") as span:
+        if due_date:
+            try:
+                due_date = datetime.strptime(due_date, '%Y-%m-%d').date()
+                task_id = task_manager.add_task(description, priority, due_date)
+            except:
+                raise ValueError("Invalid date format")
+        else:
+            task_id = task_manager.add_task(description, priority)
     
     response = jsonify({'task_id': task_id})
     response.status_code = 201

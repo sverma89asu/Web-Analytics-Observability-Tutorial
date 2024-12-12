@@ -6,12 +6,13 @@ import os
 from exceptions.bad_request_error import BadRequestError
 from config.logging_config import logger
 from prometheus_flask_exporter import PrometheusMetrics
+from config.opentelemetry_setup import setup_opentelemetry
 
 load_dotenv()
 
 app = Flask(__name__)
 app.register_blueprint(tasks)
-
+setup_opentelemetry(app)
 metrics = PrometheusMetrics(app)
 
 @app.errorhandler(ValueError)
