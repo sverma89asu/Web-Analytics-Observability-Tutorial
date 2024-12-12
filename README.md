@@ -55,7 +55,7 @@ Observability means the ability to tell what's going on in a system or applicati
 ![Observability Evolution](Images/observability-evolution.drawio.svg)
 
 # Learning activities
-1. [PostHog](./readmes/Posthog.md)
+1. [PostHog](./Readmes/Posthog.md)
 2. OpenTelemetry
 3. [Prometheus](./readmes/Prometheus.md)
 4. [Loki](./readmes/Loki.md)
