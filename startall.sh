@@ -17,6 +17,28 @@ else
   echo "Container my_redis created."
 fi
 
+# Run Jaeger
+echo "Starting Jaeger..."
+
+docker run -d --name jaeger --network prom_net \
+  -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
+  -p 5775:5775/udp \
+  -p 6831:6831/udp \
+  -p 6832:6832/udp \
+  -p 5778:5778 \
+  -p 16686:16686 \
+  -p 14268:14268 \
+  -p 14250:14250 \
+  -p 9411:9411 \
+  jaegertracing/all-in-one:1.28
+
+# Run OpenTelemetry Collector
+echo "Starting OpenTelemetry Collector..."
+docker run -d --name otel-collector --network prom_net \
+  -p 4317:4317 \
+  -p 55681:55681 \
+  otel/opentelemetry-collector:0.85.0
+
 # Loki
 docker run -d --name loki --network prom_net -p 3100:3100 -v $(pwd)/loki-config.yml:/etc/loki/loki.yml grafana/loki:3.0.0 -config.file=/etc/loki/loki.yml
 

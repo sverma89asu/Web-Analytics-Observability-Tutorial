@@ -7,6 +7,7 @@ export default {
             {
                 api_host: "https://us.i.posthog.com",
                 person_profiles: 'identified_only',
+                capture_pageview: true
             }
         );
     },

@@ -97,6 +97,10 @@ We are all SET!! We will be greeted with this screen:
    .mount('#app');
    ```
 
+5. Run the Vue application and go to [http://localhost:5173](http://localhost:5173) <br />
+   `npm install` <br />
+   `npm run dev`
+
 5. Once you’ve done this, reload your app and click the buttons a few times. You should see events appearing in the [PostHog events explorer](https://app.posthog.com/events).![enter image description here](https://github.com/user-attachments/assets/59a7aa46-6bd3-48bf-9f43-52b7f4314b0f)
 
 ### NOTE
