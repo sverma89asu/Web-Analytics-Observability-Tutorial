@@ -18,7 +18,7 @@ else
 fi
 
 # Loki
-#docker run -d --name loki --network prom_net -p 3100:3100 -v $(pwd)/loki-config.yml:/etc/loki/loki.yml grafana/loki:3.0.0 -config.file=/etc/loki/loki.yml
+docker run -d --name loki --network prom_net -p 3100:3100 -v $(pwd)/loki-config.yml:/etc/loki/loki.yml grafana/loki:3.0.0 -config.file=/etc/loki/loki.yml
 
 docker run -d --name alertmanager --network prom_net -p 9093:9093 -v $(pwd)/alertmanager.yml:/etc/alertmanager/alertmanager.yml prom/alertmanager
 
@@ -45,4 +45,4 @@ docker run -d --name grafana --network prom_net -p 3110:3000 grafana/grafana
 
 docker ps -a
 
-echo "To stop and remove all containers do: docker rm -f my_redis figlet booktown taskV1 taskV2 groceryV1 groceryV2 prom add2service encrypt decrypt loki grafana"
+echo "To stop and remove all containers do: docker rm -f my_redis booktown taskV1 taskV2 groceryV1 groceryV2 prom encrypt decrypt loki grafana alertmanager"
