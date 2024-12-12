@@ -1,5 +1,21 @@
 ![Prometheus logo](../Images/Prometheus_software_logo.png)
 
+# Table of contents
+
+<span style="font-size: 18px;">[What is Prometheus?](#what-is-prometheus)</span>
+
+<span style="font-size: 18px;">[Why Prometheus?](#why-prometheus)</span>
+
+<span style="font-size: 18px;">[Tools Required](#tools-required)</span>
+
+<span style="font-size: 18px;">[Setup to publish metrics to Prometheus](#setup-to-publish-metrics-to-prometheus)</span>
+
+<span style="font-size: 18px;">[Configure and Start Prometheus using Docker](#configure-and-start-prometheus-using-docker)</span>
+
+<span style="font-size: 18px;">[Configure alerts in Prometheus](#configure-alerts-in-prometheus)</span>
+
+<span style="font-size: 18px;">[Configure AlertManager to Notify alerts on Slack](#configure-alertmanager-to-notify-alerts-on-slack)</span>
+
 # What is Prometheus?
 Prometheus is an open-source systems monitoring and alerting tool originally built at SoundCloud in 2012. Prometheus collects and stores its metrics as time series data where the information is stored along with the timestamp at which it was recorded.
 

@@ -1,5 +1,25 @@
 ![Grafana Logo](../Images/grafana_logo.png)
 
+# Table of contents
+
+<span style="font-size: 18px;">[What is Grafana?](#what-is-grafana)</span>
+
+<span style="font-size: 18px;">[Why Grafana?](#why-grafana)</span>
+
+<span style="font-size: 18px;">[Tools Required](#tools-required)</span>
+
+<span style="font-size: 18px;">[Setup Grafana](#setup-grafana)</span>
+
+<span style="font-size: 18px;">[Connect to Prometheus](#connect-to-prometheus)</span>
+
+<span style="font-size: 18px;">[Connect to Loki](#connect-to-loki)</span>
+
+<span style="font-size: 18px;">[Visualize Dashboard](#visualize-dashboard)</span>
+
+<span style="font-size: 18px;">[Connect Alertmanager](#connect-alertmanager)</span>
+
+<span style="font-size: 18px;">[Create Alerts](#create-alerts)</span>
+
 # What is Grafana?
 Grafana enables you to query, visualiza, alert on and explore metrics, logs and traces from different data sources. It enables us to query and visualize:
 - Time series databases like [Prometheus](./Prometheus.md) and CloudWatch
