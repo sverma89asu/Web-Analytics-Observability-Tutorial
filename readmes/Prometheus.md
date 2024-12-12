@@ -104,10 +104,12 @@ route:
 receivers:
   - name: 'slack-notifications'
     slack_configs:
-      - api_url: 'https://hooks.slack.com/services/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'
+      - api_url: 'sample'
         channel: '#test-channel'
         send_resolved: true
 ```
+**NOTE**: Update api_url to correct webhook url <br />
+
 3. Add alert manager configuration in prometheus config [file](../prometheus_all.yml)
 ```
 alerting:
