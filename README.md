@@ -55,6 +55,7 @@ Observability means the ability to tell what's going on in a system or applicati
 ![Observability Evolution](Images/observability-evolution.drawio.svg)
 
 # Learning activities
+
 1. [PostHog](./Readmes/Posthog.md)
 2. OpenTelemetry
 3. [Prometheus](./readmes/Prometheus.md)
@@ -62,6 +63,12 @@ Observability means the ability to tell what's going on in a system or applicati
 5. [Grafana](./readmes/Grafana.md)
 
 # Final Thoughts
+
+## PostHog
+
+PostHog is a very good tool that helps to understand user behavior and improving product performance. Apart from being an open-source tool that is flexible and capable to capture user interactions automatically. On one note, this aspect of the tool looks very valuable for scaling companies that want to understand their user base. On the other hand, this same feature shows how fragile and important our privacy is. Even upon following the tutorial, if we click on any of our interactions in the Event Explorer window, we find that an absurd amount of our personal information like our IP address, geographical location, as well as device type is captured automatically. If this is the extent of how much of our information is compromised, then we need to ensure more robust and bolder steps are taken for our privacy.
+
+![enter image description here](https://github.com/user-attachments/assets/15eac9ad-2d80-453f-bf93-abe9e6abaa52)
 
 # References
 
@@ -75,4 +82,8 @@ Observability means the ability to tell what's going on in a system or applicati
 
 ### 3: [https://contentsquare.com/blog/a-brief-history-of-web-analytics/](https://contentsquare.com/blog/a-brief-history-of-web-analytics/)
 
+### 4: [https://posthog.com/tutorials/vue-analytics](https://posthog.com/tutorials/vue-analytics)
+
 # Resources
+
+### 1: [https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
