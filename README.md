@@ -130,5 +130,5 @@ Worst part of Grafana is that there are lot of features and data sources in it, 
 #### 6: [PromQL Query Language](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 #### 7: [LogQL Query Language](https://grafana.com/docs/loki/latest/query/)
 #### 8: [Grafana Playground](https://play.grafana.org/)
-#### 9: [Configure Flask with Prometheue](https://grafana.com/docs/grafana-cloud/monitor-applications/asserts/enable-prom-metrics-collection/application-frameworks/flask/)
+#### 9: [Configure Flask with Prometheues](https://grafana.com/docs/grafana-cloud/monitor-applications/asserts/enable-prom-metrics-collection/application-frameworks/flask/)
 #### 10: [Jaeger in Python with OpenTelemetry](https://msalinas92.medium.com/integrating-a-python-api-with-jaeger-using-opentelemetry-3885e0c80db0)
