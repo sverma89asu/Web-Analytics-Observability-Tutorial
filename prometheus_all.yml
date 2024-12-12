@@ -1,0 +1,39 @@
+scrape_configs:
+  - job_name: 'task_manager'
+    scrape_interval: 3s
+    static_configs: 
+      - targets:
+        - 'taskV1:8050'
+        - 'taskV2:8050'
+
+  - job_name: 'grocery'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: 
+        - 'groceryV1:8080'
+        - 'groceryV2:8080'
+
+  - job_name: 'booktown'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: 
+        - 'booktown:8080'
+
+  - job_name: 'encrypt_decrypt'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: 
+        - 'encrypt:8081'
+        - 'decrypt:8082'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets:
+        - 'alertmanager:9093'
+
+rule_files:
+  - /etc/prometheus/alert_rules.yml

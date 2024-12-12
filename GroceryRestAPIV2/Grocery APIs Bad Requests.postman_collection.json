@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "81af5fd1-f2aa-48a6-8488-242646ce0ac5",
+		"name": "Grocery APIs Bad Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8726117",
+		"_collection_link": "https://warped-astronaut-748481.postman.co/workspace/f3786562-42cb-45a0-8d1c-b03a55676f0f/collection/8726117-81af5fd1-f2aa-48a6-8488-242646ce0ac5?action=share&source=collection_link&creator=8726117"
+	},
+	"item": [
+		{
+			"name": "Get all groceries by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/groceries/YO",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"groceries",
+						"YO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a grocery by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/groceries/YO",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"groceries",
+						"YO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch a producer address",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/producers/LOLK",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"producers",
+						"LOLK"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a producer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/producers/LOL",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"producers",
+						"LOL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all producers for a grocery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/groceries/MLKL/producers",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"groceries",
+						"MLKL",
+						"producers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one producer for a grocery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/groceries/MLK/producers/BRHDL",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"groceries",
+						"MLK",
+						"producers",
+						"BRHDL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a producer for a grocery",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/groceries/YOG/producers/BRHDL",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"groceries",
+						"YOG",
+						"producers",
+						"BRHDL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a producer for a grocery",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/groceries/YOGI/producers/BRHD",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"groceries",
+						"YOGI",
+						"producers",
+						"BRHD"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "amex.local/grocery-v2",
+			"type": "string"
+		}
+	]
+}

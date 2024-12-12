@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "5c6ad589-3453-4283-b95a-0bb1a4cec1d2",
+		"name": "Tasks Flask Bad Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8726117",
+		"_collection_link": "https://warped-astronaut-748481.postman.co/workspace/f3786562-42cb-45a0-8d1c-b03a55676f0f/collection/8726117-5c6ad589-3453-4283-b95a-0bb1a4cec1d2?action=share&source=collection_link&creator=8726117"
+	},
+	"item": [
+		{
+			"name": "Create task bad request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"priority\": \"low\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{taskPort}}/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tasks by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/tasks/100",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tasks",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete task by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/tasks/100",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tasks",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update task status by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/tasks/100",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tasks",
+						"100"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "taskPort",
+			"value": "8050",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "localhost:8050",
+			"type": "string"
+		}
+	]
+}
