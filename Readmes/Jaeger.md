@@ -119,5 +119,10 @@ chmod +x startup.sh
 6. Send requests to your Flask application (e.g., via Postman or a browser) to generate traces.
 
 ![Jaeger Screenshot](../Images/Jaeger-screenshot.png)
+The image illustrates the trace of an API call from the tasks-manager-v2 application, specifically the “Add Task” API (defined in [task_route.py](../tasks-manager-v2/routes/task_route.py)).
 
-With Jaeger integrated into your Flask application, you will now have full visibility into the performance of your services. The startup.sh script ensures that all the necessary containers (Jaeger, Redis, OpenTelemetry Collector, and your Flask app) are set up and running, allowing you to start collecting traces immediately.
+Within the code flow of this API, two spans—Create Task and Add Task—have been defined to track the execution of key steps.
+The image visualizes the time spent within each of these spans, enabling us to analyze which parts of the flow are contributing to latency. 
+This detailed trace helps identify performance bottlenecks and optimize the overall response time of the API.
+
+With Jaeger integrated into your Flask application, you can have full visibility into the performance of your services. 
