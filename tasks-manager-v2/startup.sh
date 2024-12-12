@@ -7,7 +7,7 @@ NETWORK_NAME="prom_net"
 APP_CONTAINER_NAME="taskv2"
 REDIS_CONTAINER_NAME="my_redis"
 DOCKERFILE_PATH="."  # Adjust if Dockerfile is not in the current directory
-APP_PORT=8001        # Replace with your app's exposed port if different
+APP_PORT=8050        # Replace with your app's exposed port if different
 
 echo "Starting OpenTelemetry setup with app and Redis..."
 
