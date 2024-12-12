@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "0fa5b59d-aad2-4089-9cc7-19a9e4bef670",
+		"name": "Tasks Flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8726117",
+		"_collection_link": "https://warped-astronaut-748481.postman.co/workspace/New-Team-Workspace~f3786562-42cb-45a0-8d1c-b03a55676f0f/collection/8726117-0fa5b59d-aad2-4089-9cc7-19a9e4bef670?action=share&source=collection_link&creator=8726117"
+	},
+	"item": [
+		{
+			"name": "Create task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"des\",\n    \"priority\": \"low\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{taskPort}}/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create task with date",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"des\",\n    \"priority\": \"low\",\n    \"due_date\": \"2024-11-11\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{taskPort}}/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tasks by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks/1",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete task by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks/1",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update task status by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks/28",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks",
+						"28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter task by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks?status=pending",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "pending"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter task by priority",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks?priority=low",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "priority",
+							"value": "low"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter task by priorityand status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{taskPort}}/tasks?priority=low&status=completed",
+					"host": [
+						"localhost"
+					],
+					"port": "{{taskPort}}",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "priority",
+							"value": "low"
+						},
+						{
+							"key": "status",
+							"value": "completed"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "taskPort",
+			"value": "8050",
+			"type": "string"
+		}
+	]
+}
