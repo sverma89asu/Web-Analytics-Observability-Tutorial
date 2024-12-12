@@ -66,24 +66,60 @@ Observability means the ability to tell what's going on in a system or applicati
 
 ## PostHog
 
-PostHog is a very good tool that helps to understand user behavior and improving product performance. Apart from being an open-source tool that is flexible and capable to capture user interactions automatically. On one note, this aspect of the tool looks very valuable for scaling companies that want to understand their user base. On the other hand, this same feature shows how fragile and important our privacy is. Even upon following the tutorial, if we click on any of our interactions in the Event Explorer window, we find that an absurd amount of our personal information like our IP address, geographical location, as well as device type is captured automatically. If this is the extent of how much of our information is compromised, then we need to ensure more robust and bolder steps are taken for our privacy.
+PostHog [[8]] is a very good tool that helps to understand user behavior and improving product performance. Apart from being an open-source tool that is flexible and capable to capture user interactions automatically. On one note, this aspect of the tool looks very valuable for scaling companies that want to understand their user base. On the other hand, this same feature shows how fragile and important our privacy is. Even upon following the tutorial, if we click on any of our interactions in the Event Explorer window, we find that an absurd amount of our personal information like our IP address, geographical location, as well as device type is captured automatically. If this is the extent of how much of our information is compromised, then we need to ensure more robust and bolder steps are taken for our privacy.
 
 ![enter image description here](https://github.com/user-attachments/assets/15eac9ad-2d80-453f-bf93-abe9e6abaa52)
+
+## Prometheus
+Prometheus [[4]] is an open source tool which helps to collect metrics from different sources. These metrics could be queried with the help of a query language, PromQL, which is easy to use. Alerts can also be configured in Prometheus to monitor exception, errors, bad requests etc. It also supports the integration of AlertManager [[7]] for handling alerts and notifying them. It works very well with Grafana to visualize different dashboards. <br />
+
+The bad part of Prometheus is that different tools will require different exporter to get the metrics published on Promtheus. For example, Spring Boot requires prometheus actuator whereas Flask service requires prometheus-flask-exporter. Apart from these, it provides bunch of exporters like MongoDB, GitHub etc. The metrics published by these exporters could vary, which makes it difficult to remember and write PromQL queries. Also, Prometheus doesn't have built-in authentication which means that anyone would be able to write PromQL queries and get information about the services. <br />
+
+## Loki
+Loki [[5]] is another source tool to aggregate logs which can be integrated with Grafana. It uses label based log querying. Logs can be queried with the help of LogQL query language. <br />
+
+LogQL query language doesn't provide lot of options which limits the search capabilities for complex queries. It also relies heavily on Grafana which makes Loki less useful as a stanadlone tool. <br />
+
+## Grafana
+Grafana [[6]] is yet another open source tool which offers a range of customizable dashboards for visualizing metrics, logs and traces. It supports the integration of multiple data sources. It also supports alerting capabilities for these different data sources. <br />
+
+Worst part of Grafana is that there are lot of features and data sources in it, which makes it difficult for beginners to setup and grasp knowledge about it. Authentication mechanism has to be handled properly. Grafana also relies on its data sources which means if any of the data source fail, then it won't be able to visualize. <br />
 
 # References
 
 [1]: https://www.techtarget.com/searchbusinessanalytics/definition/Web-analytics
 [2]: https://www.redhat.com/en/topics/devops/what-is-observability
 [3]: https://contentsquare.com/blog/a-brief-history-of-web-analytics/
+[4]: https://prometheus.io/docs/prometheus/latest/getting_started/
+[5]: https://grafana.com/oss/loki/
+[6]: https://grafana.com/docs/grafana/latest/
+[7]: https://prometheus.io/docs/alerting/latest/alertmanager/
+[8]: https://posthog.com/tutorials/vue-analytics
 
-### 1: [https://www.techtarget.com/searchbusinessanalytics/definition/Web-analytics](https://www.techtarget.com/searchbusinessanalytics/definition/Web-analytics)
+#### 1: [https://www.techtarget.com/searchbusinessanalytics/definition/Web-analytics](https://www.techtarget.com/searchbusinessanalytics/definition/Web-analytics)
 
-### 2: [https://www.redhat.com/en/topics/devops/what-is-observability](https://www.redhat.com/en/topics/devops/what-is-observability)
+#### 2: [https://www.redhat.com/en/topics/devops/what-is-observability](https://www.redhat.com/en/topics/devops/what-is-observability)
 
-### 3: [https://contentsquare.com/blog/a-brief-history-of-web-analytics/](https://contentsquare.com/blog/a-brief-history-of-web-analytics/)
+#### 3: [https://contentsquare.com/blog/a-brief-history-of-web-analytics/](https://contentsquare.com/blog/a-brief-history-of-web-analytics/)
 
-### 4: [https://posthog.com/tutorials/vue-analytics](https://posthog.com/tutorials/vue-analytics)
+#### 4: [https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
+
+#### 5: [https://grafana.com/oss/loki/](https://grafana.com/oss/loki/)
+
+#### 6: [https://grafana.com/docs/grafana/latest/](https://grafana.com/docs/grafana/latest/)
+
+#### 7: [https://prometheus.io/docs/alerting/latest/alertmanager/](https://prometheus.io/docs/alerting/latest/alertmanager/)
+
+#### 8: [https://posthog.com/tutorials/vue-analytics](https://posthog.com/tutorials/vue-analytics)
 
 # Resources
 
-### 1: [https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
+#### 1: [https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
+#### 2: [Spring boot with Prometheus](https://www.baeldung.com/spring-boot-prometheus)
+#### 3: [Spring boot application with Prometheus and Grafana](https://medium.com/simform-engineering/revolutionize-monitoring-empowering-spring-boot-applications-with-prometheus-and-grafana-e99c5c7248cf)
+#### 4: [Spring boot Loki and Grafana logging](https://www.baeldung.com/spring-boot-loki-grafana-logging)
+#### 5: [Prometheus Alertmanager](https://medium.com/@krishabh080/prometheus-alert-manager-setup-and-alert-configurations-slack-800f6bb5111e)
+#### 6: [PromQL Query Language](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+#### 7: [LogQL Query Language](https://grafana.com/docs/loki/latest/query/)
+#### 8: [Grafana Playground](https://play.grafana.org/)
+#### 9: [Configure Flask with Prometheue](https://grafana.com/docs/grafana-cloud/monitor-applications/asserts/enable-prom-metrics-collection/application-frameworks/flask/)
