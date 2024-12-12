@@ -70,7 +70,7 @@ PostHog [[8]] is a very good tool that helps to understand user behavior and imp
 
 ![enter image description here](https://github.com/user-attachments/assets/15eac9ad-2d80-453f-bf93-abe9e6abaa52)
 
-## Opentelemetry (Jaeger)
+## Jaeger
 Jaeger [[9]] is an open source tool which helps us to understand the tracing making it easier to understand the request flows in complex microservice architecture. It provides a powerful visualization of trace data. <br />
 
 The setup of Jaeger in Flask is a bit complex and require a steep learning curve. It also doesn't have built-in alerting system to show to raise alerts and need to be integrated with Prometheus, Loki and Grafana. <br />
