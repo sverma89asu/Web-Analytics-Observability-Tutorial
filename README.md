@@ -70,10 +70,10 @@ PostHog [[8]] is a very good tool that helps to understand user behavior and imp
 
 ![enter image description here](https://github.com/user-attachments/assets/15eac9ad-2d80-453f-bf93-abe9e6abaa52)
 
-## Opentelemetry (Jaegar)
-Jaegar [[9]] is an open source tool which helps us to understand the tracing making it easier to understand the request flows in complex microservice architecture. It provides a powerful visualization of trace data. <br />
+## Opentelemetry (Jaeger)
+Jaeger [[9]] is an open source tool which helps us to understand the tracing making it easier to understand the request flows in complex microservice architecture. It provides a powerful visualization of trace data. <br />
 
-The setup of Jaegar in Flask is a bit complex and require a steep learning curve. It also doesn't have built-in alerting system to show to raise alerts and need to be integrated with Prometheus, Loki and Grafana. <br />
+The setup of Jaeger in Flask is a bit complex and require a steep learning curve. It also doesn't have built-in alerting system to show to raise alerts and need to be integrated with Prometheus, Loki and Grafana. <br />
 
 ## Prometheus
 Prometheus [[4]] is an open source tool which helps to collect metrics from different sources. These metrics could be queried with the help of a query language, PromQL, which is easy to use. Alerts can also be configured in Prometheus to monitor exception, errors, bad requests etc. It also supports the integration of AlertManager [[7]] for handling alerts and notifying them. It works very well with Grafana to visualize different dashboards. <br />
@@ -131,4 +131,4 @@ Worst part of Grafana is that there are lot of features and data sources in it, 
 #### 7: [LogQL Query Language](https://grafana.com/docs/loki/latest/query/)
 #### 8: [Grafana Playground](https://play.grafana.org/)
 #### 9: [Configure Flask with Prometheue](https://grafana.com/docs/grafana-cloud/monitor-applications/asserts/enable-prom-metrics-collection/application-frameworks/flask/)
-#### 10: [Jaegar in Python with OpenTelemetry](https://msalinas92.medium.com/integrating-a-python-api-with-jaeger-using-opentelemetry-3885e0c80db0)
+#### 10: [Jaeger in Python with OpenTelemetry](https://msalinas92.medium.com/integrating-a-python-api-with-jaeger-using-opentelemetry-3885e0c80db0)
